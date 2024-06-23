@@ -14,9 +14,9 @@ const AddTasks = () => {
             <form className='add-tasks-container__add-tasks-form'>
                 <div className='add-tasks-form__maintaner'>
                     <p>Исполнитель</p>
-                    <LessInput placeholder='Введите вашу фамилию' type='text' onChangeProps={addNameForOnChangeInput}/>
+                    <LessInput placeholder='Введите ваш email' type='email' onChangeProps={addNameForOnChangeInput}/>
                     <LessInput placeholder='Введите ваше имя' type='text' onChangeProps={addNameForOnChangeInput}/>
-                    <LessInput placeholder='Введите ваше отчество' type='text' onChangeProps={addNameForOnChangeInput}/>
+                    <LessInput placeholder='Введите ваше сообщение' type='text' onChangeProps={addNameForOnChangeInput}/>
                 </div>
                 <div>
                     <Fullinput localType='date' />
