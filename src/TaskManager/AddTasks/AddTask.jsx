@@ -3,8 +3,7 @@ import LessInput from "../../shared/StatelessInputs/LessInput";
 import './AddTask.css'
 import Fullinput from "../../shared/Statefullinputs/Fullinput";
 
-const AddTasks = (onClose, onAdd, setTask) => {
-
+const AddTasks = (props) => {
     const addNameForOnChangeInput = (text) => {
         console.log(text);
     }
@@ -13,7 +12,7 @@ const AddTasks = (onClose, onAdd, setTask) => {
         <div className='add-tasks-container'>
             <form className='add-tasks-container__add-tasks-form' onSubmit={(e) => {
                 e.preventDefault();
-                onAdd(e.target);
+                props.onAdd(e.target);
             }}>
                 <div className='add-tasks-form__maintaner'>
                     <p className='label'>Исполнитель</p>
@@ -35,8 +34,8 @@ const AddTasks = (onClose, onAdd, setTask) => {
                     <p className='label'>Введите валюту</p>
                     <Fullinput name={'description'} placeholder='Какую валюту вы хотите поменять' localType='text-area'/>
                 </div>
-                <button className='btn form-btn' onClick={() => onAdd()}>Отправить данные</button>
-                <button className='btn form-btn' onClick={() => onClose()}>Отмена</button>
+                <button className='btn form-btn' onClick={(e) => props.onAdd(e)}>Отправить данные</button>
+                <button className='btn form-btn' onClick={() => props.onClose()}>Отмена</button>
             </form>
         </div>
     )

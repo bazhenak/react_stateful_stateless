@@ -13,20 +13,28 @@ const TaskManager = () => {
     }
 
     const onAdd = (e) => {
-        const obj = Object.values(e.target).reduce((obj, field) => { obj[field.name] = field.value; return obj }, {});
+        console.log("e", e)
+        const obj = Object.values(e.target).reduce((objj, field) => {
+
+            objj[field.name] = field.value;
+            console.log(objj)
+            return objj
+        }, {});
+        console.log(obj)
+
         setTask(obj)
         setTaskList([...taskList, obj]);
     }
 
-
     return (
         <div className='tasks-container'>
             {addTaskIsOpened && <div className='middle-ware-fore-pop-up'></div>}
-            <button className='btn task-container__add-task-button' onClick={() => setAddTaskIsOpened(!addTaskIsOpened)}>
+            <button className='btn task-container__add-task-button'
+                    onClick={() => setAddTaskIsOpened(!addTaskIsOpened)}>
                 Добавить задачу
             </button>
-            {addTaskIsOpened && <AddTasks onClose={onCloseAddTask} onAdd={onAdd}/>}
-            <TaskList tasks={taskList} />
+            {addTaskIsOpened && <AddTasks onClose={onCloseAddTask} onAdd={onAdd} setTask={"a"}/>}
+            <TaskList tasks={taskList}/>
 
         </div>
     )
