@@ -3,7 +3,7 @@ import LessInput from "../../shared/StatelessInputs/LessInput";
 import './AddTask.css'
 import Fullinput from "../../shared/Statefullinputs/Fullinput";
 
-const AddTasks = () => {
+const AddTasks = (onClose, onAdd, setTask) => {
 
     const addNameForOnChangeInput = (text) => {
         console.log(text);
@@ -11,16 +11,32 @@ const AddTasks = () => {
 
     return (
         <div className='add-tasks-container'>
-            <form className='add-tasks-container__add-tasks-form'>
+            <form className='add-tasks-container__add-tasks-form' onSubmit={(e) => {
+                e.preventDefault();
+                onAdd(e.target);
+            }}>
                 <div className='add-tasks-form__maintaner'>
-                    <p>Исполнитель</p>
-                    <LessInput placeholder='Введите ваш email' type='email' onChangeProps={addNameForOnChangeInput}/>
-                    <LessInput placeholder='Введите ваше имя' type='text' onChangeProps={addNameForOnChangeInput}/>
-                    <LessInput placeholder='Введите ваше сообщение' type='text' onChangeProps={addNameForOnChangeInput}/>
+                    <p className='label'>Исполнитель</p>
+                    <div className='maintaner-info-container'>
+                        <LessInput placeholder='Введите ваш email' type='email' name={'email'} onChangeProps={addNameForOnChangeInput}
+                                   classes='maintaner-item'/>
+                        <LessInput placeholder='Введите ваше имя' type='text' name={'name'} onChangeProps={addNameForOnChangeInput}
+                                   classes='maintaner-item'/>
+                        <LessInput placeholder='Введите ваше сообщение' type='text' name={'message'}
+                                   onChangeProps={addNameForOnChangeInput} classes='maintaner-item'/>
+                    </div>
+
                 </div>
                 <div>
-                    <Fullinput localType='date' />
+                    <p className='label'>Введите дату рождения</p>
+                    <Fullinput name={'date'} localType='date'/>
                 </div>
+                <div>
+                    <p className='label'>Введите валюту</p>
+                    <Fullinput name={'description'} placeholder='Какую валюту вы хотите поменять' localType='text-area'/>
+                </div>
+                <button className='btn form-btn' onClick={() => onAdd()}>Отправить данные</button>
+                <button className='btn form-btn' onClick={() => onClose()}>Отмена</button>
             </form>
         </div>
     )

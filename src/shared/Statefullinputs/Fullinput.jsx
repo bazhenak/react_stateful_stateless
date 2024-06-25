@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Fullinput = ({localType}) => {
+const Fullinput = ({localType, placeholder, propsName}) => {
 
     const [isValid, setIsValid] = useState(false);
     const [disabled, setDisabled] = useState (false);
@@ -14,12 +14,17 @@ const Fullinput = ({localType}) => {
            return (
                <>
                    {disabled && <label>Вы младше 18 лет. К сожалению, задача для вас недоступна</label>}
-               <input type='date' className={isValid ? 'valid' : 'is-not-valid'} onChange={(e) => isValidDate(e.target.value)}/>
+               <input name={propsName} type='date' className={isValid ? 'valid' : 'is-not-valid'} onChange={(e) => isValidDate(e.target.value)}/>
                </>
            );
        case 'password':
            return (
-               <input type='password' className={isValid ? 'is-not-valid' : 'valid'}/>
+               <input name={propsName} type='password' className={isValid ? 'is-not-valid' : 'valid'}/>
+           );
+
+       case 'text-area':
+           return (
+                <textarea name={propsName} placeholder={placeholder} className='textarea'></textarea>
            );
    }
 };

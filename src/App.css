@@ -14,6 +14,21 @@
   padding: 10px;
 }
 
+.textarea {
+  min-height: 50px;
+  min-width: 400px;
+}
+
+.middle-ware-fore-pop-up {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vw;
+  background-color: grey;
+  opacity: 0.5;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
