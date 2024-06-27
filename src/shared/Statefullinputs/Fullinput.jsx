@@ -13,7 +13,7 @@ const Fullinput = ({localType}) => {
        case 'date':
            return (
                <>
-                   {disabled && <label>Вы младше 18 лет. К сожалению, задача для вас недоступна</label>}
+                   {disabled && <label>Вы младше 18 лет. К сожалению, обмен валюты для вас недоступен</label>}
                <input type='date' className={isValid ? 'valid' : 'is-not-valid'} onChange={(e) => isValidDate(e.target.value)}/>
                </>
            );

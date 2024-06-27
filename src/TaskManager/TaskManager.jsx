@@ -8,7 +8,7 @@ const TaskManager = () => {
     return (
         <div className='tasks-container'>
             <button className='btn task-container__add-task-button' onClick={() => setAddTaskIsOpened(!addTaskIsOpened)}>
-                Добавить задачу
+                Купить доллары
             </button>
             {addTaskIsOpened && <AddTasks />}
 
